@@ -1,41 +1,28 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('title')
+    todos list
+@endsection
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+@section('content')
+    <h1 class="text-center my-5">TODOS APP</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-default">
+                <div class="card-header">
+                    todos
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    todo index
+                <div class="card-body">
+                    <ul class="list-group">
+                        @foreach($todos as $todo)
+                            <li class="list-group-item">
+                                {{ $todo->name }}
+                                <a href="/todos/{{ $todo->id }}" class="btn btn-primary btn-sm float-right">view</a>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
-
             </div>
         </div>
-    </body>
-</html>
+    </div>
+@endsection
