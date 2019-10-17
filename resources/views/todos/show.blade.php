@@ -26,8 +26,8 @@
 				
 			</div>
 			<div class="float-right">
-				<a href="/todos/{{ $todo->id }}/edit" class="btn btn-success">edit</a>
-				<a href="/todos/{{ $todo->id }}/delete" class="btn btn-danger">delete</a>
+				<a href="/todos/{{ $todo }}/edit" class="btn btn-success">edit</a>
+				<a href="/todos/{{ $todo }}/delete" class="btn btn-danger">delete</a>
 			</div>
 			
 		</div>

@@ -23,4 +23,5 @@ Route::get('new-todos', 'TodosController@create');
 Route::post('store-todos', 'TodosController@store');
 Route::get('todos/{todoId}/edit', 'TodosController@edit');
 Route::post('todos/{id}/update', 'TodosController@update');
-Route::get('todos/{todoId}/delete', 'TodosController@delete');
+Route::get('todos/{todoId}/delete', 'TodosController@destroy');
+Route::get('todos/{todoId}/complete', 'TodosController@complete');
