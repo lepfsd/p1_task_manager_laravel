@@ -23,7 +23,13 @@
 				<div class="card-footer text-muted">
 					created: {{ $todo->created_at }}
 				</div>
+				
 			</div>
+			<div class="float-right">
+				<a href="/todos/{{ $todo->id }}/edit" class="btn btn-success">edit</a>
+				<a href="/todos/{{ $todo->id }}/delete" class="btn btn-danger">delete</a>
+			</div>
+			
 		</div>
 	</div>
 @endsection

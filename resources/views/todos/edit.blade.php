@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    create todo
+    edit todo
 @endsection
 
 @section('content')
@@ -9,8 +9,8 @@
 				
 	<div class="row justify-content-center">
 		<div class="col-md-8">
-			<div class="alert alert-primary" role="alert">
-				create todo
+			<div class="alert alert-info" role="alert">
+				edit todo
 			</div>
 			@if($errors->any())
 				<div class="alert alert-danger">
@@ -21,16 +21,17 @@
 					</div>
 				</div>
 			@endif
-			<form action="/store-todos" method="POST">
-				@csrf
+			<form action="/todos/{{ $todo->id }}/update" method="POST">
+			
+				@csrf 
 				<div class="form-group">
-					<input type="text" class="form-control" name="name" placeholder="name">
+					<input type="text" class="form-control" name="name" placeholder="name" value="{{$todo->name}}">
 				</div>
 				<div class="form-group">
-					<textarea name="description" id="" cols="5" rows="5" placeholder="description" class="form-control"></textarea>
+					<textarea name="description" id="" cols="5" rows="5" placeholder="description" class="form-control">{{$todo->description}}</textarea>
 				</div>
 				<div class="form-group text-right">
-					<button class="btn btn-success">submit</button>
+					<button class="btn btn-warning">update</button>
 				</div>
 			</form>
 		</div>
